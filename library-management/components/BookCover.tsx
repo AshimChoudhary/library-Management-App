@@ -8,7 +8,7 @@ interface Props {
   className?: string;
   variant?: BookCoverVariant;
   coverColor: string;
-  coverImage: string;
+  coverUrl: string;
 }
 const variantStyles: Record<BookCoverVariant, string> = {
   extraSmall: 'book-cover_extra_small',
@@ -22,7 +22,7 @@ const BookCover = ({
   className,
   variant = 'regular',
   coverColor = '#012B48',
-  coverImage = 'https://placehold.co/400x600.png',
+  coverUrl = 'https://placehold.co/400x600.png',
 }: Props) => {
   return (
     <div
@@ -38,7 +38,7 @@ const BookCover = ({
         style={{ left: '12%', width: '87.5%', height: '88%' }}
       >
         <Image
-          src={coverImage}
+          src={coverUrl}
           alt="Book Cover"
           fill
           className="rounded-sm object-fill"
