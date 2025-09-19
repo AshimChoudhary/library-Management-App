@@ -4,6 +4,12 @@ import BookCoverSvg from './BookCoverSvg';
 
 type BookCoverVariant = 'extraSmall' | 'small' | 'medium' | 'regular' | 'wide';
 
+interface Props {
+  className?: string;
+  variant?: BookCoverVariant;
+  coverColor: string;
+  coverImage: string;
+}
 const variantStyles: Record<BookCoverVariant, string> = {
   extraSmall: 'book-cover_extra_small',
   small: 'book-cover_small',
@@ -11,13 +17,6 @@ const variantStyles: Record<BookCoverVariant, string> = {
   regular: 'book-cover_regular',
   wide: 'book-cover_wide',
 };
-
-interface Props {
-  className?: string;
-  variant: BookCoverVariant;
-  coverColor: string;
-  coverImage: string;
-}
 
 const BookCover = ({
   className,
