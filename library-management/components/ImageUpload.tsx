@@ -4,6 +4,7 @@ import { IKImage, ImageKitProvider, IKUpload } from 'imagekitio-next';
 import config from '@/lib/config';
 import { useRef, useState } from 'react';
 import Image from 'next/image';
+import { toast } from '@/hooks/use-toast';
 
 const {
   env: {
@@ -40,10 +41,21 @@ const ImageUpload = ({
 
   const onError = (error: any) => {
     console.log(error);
+
+    toast({
+      title: 'Image Uploaded Failed ⚙️',
+      description: 'Your image could not be uploaded. Please try again',
+      variant: 'destructive',
+    });
   };
   const onSucess = (res: any) => {
     setFile(res);
     onFileChange(res.filePath);
+
+    toast({
+      title: 'Image Uploaded successfully ⚡',
+      description: `${res.filePath} uploaded successfully!`,
+    });
   };
   return (
     <ImageKitProvider
