@@ -24,7 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .where(eq(users.email, credentials.email.toString()))
           .limit(1);
 
-        if (users.length === 0) {
+        if (user.length === 0) {
           return null;
         }
 
@@ -49,7 +49,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.is = user.id;
+        token.id = user.id;
         token.name = user.name;
       }
 
