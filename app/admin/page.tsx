@@ -1,4 +1,4 @@
 const page = () => {
-  return <div>page</div>;
+  return <div>Admin Dashboard</div>;
 };
 export default page;
